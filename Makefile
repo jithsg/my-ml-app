@@ -13,6 +13,14 @@ lint:
 	#lint Dockerfile
 	#docker run --rm -i hadolint/hadolint < Dockerfile
 
+build:
+	#build docker image
+	docker build -t mlops .
+
+run:
+	#run docker image
+	docker run -p 127.0.0.1:8080:8080 mlops
+
 deploy:
 	#push to ECR for deploy
 	#aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 561744971673.dkr.ecr.us-east-1.amazonaws.com
@@ -20,4 +28,4 @@ deploy:
 	#docker tag mlops:latest 561744971673.dkr.ecr.us-east-1.amazonaws.com/mlops:latest
 	#docker push 561744971673.dkr.ecr.us-east-1.amazonaws.com/mlops:latest
 	
-all: install lint test format deploy
+all: install lint test format build deploy
