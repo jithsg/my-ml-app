@@ -14,7 +14,6 @@ lint:
 	#docker run --rm -i hadolint/hadolint < Dockerfile
 
 build:
-	#build docker image
 	docker build -t mlops .
 
 run:
