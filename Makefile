@@ -23,8 +23,8 @@ run:
 
 deploy:
 	aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 185183796631.dkr.ecr.us-east-1.amazonaws.com
-	docker build -t webapp .
-	docker tag webapp:latest 185183796631.dkr.ecr.us-east-1.amazonaws.com/webapp:latest
-	docker push 185183796631.dkr.ecr.us-east-1.amazonaws.com/webapp:latest
+	docker build -t my-mlopss-app .
+	docker tag my-mlopss-app:latest 185183796631.dkr.ecr.us-east-1.amazonaws.com/my-mlopss-app:latest
+	docker push 185183796631.dkr.ecr.us-east-1.amazonaws.com/my-mlopss-app:latest
 	
 all: install lint test format build deploy
