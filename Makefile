@@ -10,7 +10,7 @@ format:
 
 lint:
 	pylint --disable=R,C,W1203,E1101 mlib cli utilscli
-	#lint Dockerfile
+	
 	#docker run --rm -i hadolint/hadolint < Dockerfile
 
 build:
@@ -26,5 +26,5 @@ deploy:
 	docker build -t my-mlopss-app .
 	docker tag my-mlopss-app:latest 185183796631.dkr.ecr.us-east-1.amazonaws.com/my-mlopss-app:latest
 	docker push 185183796631.dkr.ecr.us-east-1.amazonaws.com/my-mlopss-app:latest
-	
+
 all: install lint test format build deploy
